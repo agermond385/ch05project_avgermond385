@@ -1,11 +1,13 @@
 // The checkmissing() function checks all "required" fields for missing values.
 // It counts how many "required" fields are missing and displays a number of missing fields.
-function checkmissing() {
+//with id "missing-count" to display the number of missing fields.
+
+function checkMissing() {
     const requiredFields = document.querySelectorAll(".required");
     let missing = 0;
 
     requiredFields.forEach(function (field) {
-        if (field.ariaValueMax.trim() === "") {
+        if (field.value.trim() === "") {
             missing++;
         }
     });
@@ -26,13 +28,13 @@ function checkmissing() {
 //Once valid, it removes the red border
 
 function validateEmail() {
-    const emailInput = document.getElementById("email");
-    const valid = email.value.trim().length >= 8;
+    const emailInput = document.getElementById("emailInput");
+    const valid = emailInput.value.trim().length >= 8;
 
     if (!valid) {
-        email.classList.add("email-invalid");
+        emailInput.classList.add("email-invalid");
     } else {
-        email.classList.remove("email-invalid");
+        emailInput.classList.remove("email-invalid");
     }
 
     return valid;
@@ -43,7 +45,7 @@ function validateEmail() {
 //it prevents submission and displays an alert to the user.
 
 function runValidationAndSubmit() {
-    const missingCount = checkmissing();
+    const missingCount = checkMissing();
     const emailValid = validateEmail();
 
     if (missingCount > 0 || !emailValid) {
@@ -61,5 +63,5 @@ document.addEventListener("DOMContentLoaded", function () {
 
         //run once on page load
 
-    checkmissing();
+    checkMissing();
 });
