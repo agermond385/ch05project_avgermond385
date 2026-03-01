@@ -28,7 +28,7 @@ function checkMissing() {
 //Once valid, it removes the red border
 
 function validateEmail() {
-    const emailInput = document.getElementById("emailInput");
+    const emailInput = document.getElementById("email");
     const valid = emailInput.value.trim().length >= 8;
 
     if (!valid) {
