@@ -1,0 +1,59 @@
+/* styles.main.css */
+ * {
+    box-sizing: border-box;
+ }
+
+ body {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    margin: 0;
+    line-height: 1.5;
+ }
+
+ header, main, footer {
+    padding: 16px;
+ }
+
+ nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 8px 0 0;
+    display: flex;
+    gap: 12px;
+ }
+
+ nav a {
+    text-decoration: none;
+ }
+
+ .field {
+    margin-bottom: 12px;
+    max-width: 420px;
+ }
+
+ label {
+    display: block;
+    margin-bottom: 4px;
+ }
+
+ input[type="text"],
+ input[type="email"],
+ select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+ }
+
+ .required {
+    border-color:yellow;
+ }
+
+ .email-invalid {
+    border-color:firebrick;
+ }
+
+ #missing-count {
+    display: inline-block;
+    margin-top: 10px;
+    font-weight: bold;
+ }

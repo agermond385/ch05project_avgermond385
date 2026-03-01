@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validating HTML Forms with JavaScript</title>
+
+    <link rel="stylesheet" href="styles/main.css" />
+    <script src="scripts/form-validation.js" defer></script>
+</head>
+<body>
+    <header>
+        <h1>Validating HTML Forms with JavaScript</h1>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h2>Contact Form</h2>
+
+        <form id="contact-form" action="#" method="post" novalidate>
+            <div class="field">
+                <label for="full-name">Full Name</label>
+                <input
+                    type="text"
+                    id="full-name"
+                    name="FullName"
+                    class="required"
+                    required
+                />
+            </div>
+
+            <div class="field">
+                <label for="email">Email Address</label>
+                <input
+                    type="email"
+                    id="email"
+                    name="EmailAddress"
+                    class="required"
+                    required
+                />
+            </div>
+
+            <div class="field">
+                <label for="topic">Topic</label>
+                <select id="topic" name="topic" class="required" required>
+                    <option value="Reason for Contact">Reason for Contact</option>
+                    <option value="General Support">Support</option>
+                    <option value="Technical Support">Sales</option>
+                    <option value="Feedback">Feedback</option>
+                </select>
+            </div>
+
+            <input type="button" id="submit-btn" value="Submit" />
+        </form>
+
+        <span id="missing-count"></span>
+    </main>
+    
+    <!---Form validation SS in media folder-->
+    
+    <footer>
+        <p>&copy;2026, AVGermond385</p>
+    </footer>
+</body>
+</html>

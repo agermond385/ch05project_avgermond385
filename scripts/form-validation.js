@@ -1,0 +1,65 @@
+// The checkmissing() function checks all "required" fields for missing values.
+// It counts how many "required" fields are missing and displays a number of missing fields.
+function checkmissing() {
+    const requiredFields = document.querySelectorAll(".required");
+    let missing = 0;
+
+    requiredFields.forEach(function (field) {
+        if (field.ariaValueMax.trim() === "") {
+            missing++;
+        }
+    });
+
+    const output = document.getElementById("missing-count");
+
+    if (missing > 0) {
+        output.textContent = "Missing required fields: " + missing;
+    } else {
+        output.textContent = "All required fields are complete.";
+    }
+
+    return missing;
+}
+
+//The validateEmail() function checks if the email input 
+// contains at least 8 characters. if invalid, it adds a red boarder
+//Once valid, it removes the red border
+
+function validateEmail() {
+    const emailInput = document.getElementById("email");
+    const valid = email.value.trim().length >= 8;
+
+    if (!valid) {
+        email.classList.add("email-invalid");
+    } else {
+        email.classList.remove("email-invalid");
+    }
+
+    return valid;
+}
+
+//the runValidationAndSubmit() function runs both validation functions
+//when the submit buttton is hit. If any "required" fields are missing or the email is invalid,
+//it prevents submission and displays an alert to the user.
+
+function runValidationAndSubmit() {
+    const missingCount = checkmissing();
+    const emailValid = validateEmail();
+
+    if (missingCount > 0 || !emailValid) {
+        alert("Please complete all required fields.");
+        return;
+    }
+
+    document.getElementById("contact-form").submit();
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+    document
+        .getElementById("submit-btn")
+        .addEventListener("click", runValidationAndSubmit);
+
+        //run once on page load
+
+    checkmissing();
+});
