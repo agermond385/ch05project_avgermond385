@@ -1,6 +1,6 @@
 // The checkmissing() function checks all "required" fields for missing values.
-// It counts how many "required" fields are missing and displays a number of missing fields.
-//with id "missing-count" to display the number of missing fields.
+// It counts how many "required" fields, with id "missing-count"
+// to display the number of missing fields.
 
 function checkMissing() {
     const requiredFields = document.querySelectorAll(".required");
@@ -27,7 +27,7 @@ function checkMissing() {
 }
 
 //The validateEmail() function checks if the email input 
-// contains at least 8 characters. if invalid, it adds a red boarder
+// contains at least 8 characters. if invalid, it adds a red border
 //Once valid, it removes the red border
 
 function validateEmail() {
@@ -63,6 +63,17 @@ document.addEventListener("DOMContentLoaded", function () {
     document
         .getElementById("submit-btn")
         .addEventListener("click", runValidationAndSubmit);
+
+        //remove red border when user types
+    const requiredFields = document.querySelectorAll(".required");
+
+    requiredFields.forEach(function (field) {
+        field.addEventListener("input", function () {
+            if (field.value.trim() !== "") {
+                field.classList.remove("email-invalid");
+            }
+        });
+    });
 
         //run once on page load
 
