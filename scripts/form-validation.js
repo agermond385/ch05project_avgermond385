@@ -8,7 +8,10 @@ function checkMissing() {
 
     requiredFields.forEach(function (field) {
         if (field.value.trim() === "") {
+            field.classList.add("email-invalid"); //red border for missing required fields
             missing++;
+        } else {
+            field.classList.remove("email-invalid"); 
         }
     });
 
